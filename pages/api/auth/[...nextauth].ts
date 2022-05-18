@@ -19,6 +19,10 @@ export default NextAuth({
       console.log('サインイン')
       return true
     },
+    async session({ session, user, token }) {
+      session = { ...session, id: 1 }
+      return session
+    },
   },
   secret: 'secret',
 })

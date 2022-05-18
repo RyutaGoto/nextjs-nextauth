@@ -14,5 +14,11 @@ export default NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
     }),
   ],
+  callbacks: {
+    async signIn({ user, account, profile, email, credentials }) {
+      console.log('サインイン')
+      return true
+    },
+  },
   secret: 'secret',
 })

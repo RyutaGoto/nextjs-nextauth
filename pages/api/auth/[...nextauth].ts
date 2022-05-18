@@ -23,6 +23,10 @@ export default NextAuth({
       session = { ...session, id: 1 }
       return session
     },
+    async jwt({ token, user, account, profile, isNewUser }) {
+      console.log(`account:${JSON.stringify(account)}`)
+      return token
+    },
   },
   secret: 'secret',
 })

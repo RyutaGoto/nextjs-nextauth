@@ -19,12 +19,16 @@ export default NextAuth({
     }),
   ],
   callbacks: {
+    async signIn({ user, account, profile, email, credentials }) {
+      console.log('サインイン');
+      return true;
+    },
     async session({ session, user, token }) {
-      session.accessToken = token.accessToken;
+      // session.accessToken = token.accessToken;
       return session;
     },
     async jwt({ token, user, account, profile, isNewUser }) {
-      if (account) token.accessToken = account.access_token;
+      // if (account) token.accessToken = account.access_token;
       return token;
     },
   },

@@ -24,7 +24,8 @@ export default NextAuth({
       return true;
     },
     async session({ session, user, token }) {
-      // session.accessToken = token.accessToken;
+      session.accessToken = token.accessToken;
+      session.user.mobile = user.mobile;
       return session;
     },
     async jwt({ token, user, account, profile, isNewUser }) {
